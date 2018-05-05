@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+import os
+import re
+import sys
+from pathlib import Path
+from subprocess import run, PIPE
+
+
+def _(cmd, **kwargs):
+    # why isn't this the default
+    return run(cmd if kwargs.get('shell') else cmd.split(), **kwargs)
+
+
+sys.stdout.write('This program is idempotent, you can run it many times to same effect.\n')
+
+sys.stdout.write('\n--- init hooks ---\n')
+_('rm .git/hooks/pre-commit')
+_('ln -s ../../pre-commit.hook.py .git/hooks/pre-commit')
+
+sys.stdout.write('Installed symlinks:\n')
+
+_('find .git -type l -exec echo -en "\t{} -> " \; -exec readlink {} \;', shell=True)
+sys.stdout.write('\n--- Add hosts ---\n')
+_("grep yong.dev /etc/hosts || echo '127.0.0.1 yong.dev' | sudo tee --append /etc/hosts", shell=True)
+
+sys.stdout.write('\n--- Install Ubuntu packages---\n')
+_('cat ubuntu_packages | xargs sudo apt-get -y install', shell=True)
+sys.stdout.write('\n--- Install python packages---\n')
+if os.getenv('VIRTUAL_ENV'):
+    assert re.search(r'3\.[56]', _('python --version', stdout=PIPE).stdout.decode('utf-8')), 'Python 3.5 or greater'
+    _('pip install -r requirements.txt')
+    _('pip install -r requirements_dev.txt')
+    python_path = Path(_('which python', stdout=PIPE).stdout.decode('utf-8'))
+    sys.stdout.write('\nConsider adding this to .bashrc for bash goodies\n')
+    sys.stdout.write('\texport YO_VENV_BIN=%s\n' % python_path.parent)
+    sys.stdout.write('\tsource "%s"/source.me\n' % Path.cwd())
+else:
+    sys.stdout.write('you are not inside a virtualenv, create one first\n')
+
+_('touch app.sqlite3')
