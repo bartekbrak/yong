@@ -89,4 +89,4 @@ def setup_logging(level):
 
 if __name__ == '__main__':
     setup_logging('DEBUG')
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8041)
