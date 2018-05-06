@@ -1,0 +1,26 @@
+{
+  "name": "Yong",
+  "description" : "Wtyczka służąca do oceniania treści w Internecie i dzielenia się tymi ocenami z innymi",
+  "version": "2018.5.6",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "<all_urls>",
+    "tabs",
+    "identity",
+    "identity.email",
+    "storage"
+  ],
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "MacCtrl+Shift+F"
+      },
+      "description": "otwiera popup.html"
+    }
+  }
+
+}

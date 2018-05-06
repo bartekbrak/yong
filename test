@@ -1,7 +1,7 @@
 #!/bin/bash
 
-http POST http://127.0.0.1:8000/test who='bartek' url='https://www.youtube.com/watch?v=wf-BqAjZb8M' mark=5 cats='pep8,hettinger' desc='Something non trivial'
-http POST http://127.0.0.1:8000/test who='tomasz' url='https://www.youtube.com/watch?v=voXVTjwnn-U' mark=4 cats='core,psf,hettinger' desc=''
-http POST http://127.0.0.1:8000/test who='aneta7' url='https://www.youtube.com/watch?v=a-BOSpxYJ9M' mark=5 cats='agile' desc='Agile is Dead • Pragmatic Dave Thomas'
-http POST http://127.0.0.1:8000/test who='bartek' url='https://www.youtube.com/watch?v=s4thQcgLCqk' mark=2 cats='tedx,time_managment' desc='The art of doing twice as much in half the time | Jeff Sutherland | TEDxAix'
-http POST http://127.0.0.1:8000/test who='tomasz' url='https://www.youtube.com/watch?v=UTKIT6STSVM' mark=3 cats='netflix' desc="I didn't know Bill Bailey was working for netflix. :D﻿"
+http POST http://127.0.0.1:8041/test who='bartek' url='https://www.youtube.com/watch?v=wf-BqAjZb8M' mark=5 cats='pep8,hettinger' desc='Something non trivial'
+http POST http://127.0.0.1:8041/test who='tomasz' url='https://www.youtube.com/watch?v=voXVTjwnn-U' mark=4 cats='core,psf,hettinger' desc=''
+http POST http://127.0.0.1:8041/test who='aneta7' url='https://www.youtube.com/watch?v=a-BOSpxYJ9M' mark=5 cats='agile' desc='Agile is Dead • Pragmatic Dave Thomas'
+http POST http://127.0.0.1:8041/test who='bartek' url='https://www.youtube.com/watch?v=s4thQcgLCqk' mark=2 cats='tedx,time_managment' desc='The art of doing twice as much in half the time | Jeff Sutherland | TEDxAix'
+http POST http://127.0.0.1:8041/test who='tomasz' url='https://www.youtube.com/watch?v=UTKIT6STSVM' mark=3 cats='netflix' desc="I didn't know Bill Bailey was working for netflix. :D﻿"
