@@ -42,7 +42,7 @@ th {
 {% for secret, who, url, mark, cats, desc in rows %}
     <tr>
         <td>{{ who }}</td>
-        <td>{{ url }}</td>
+        <td><a href="{{ url }}" target="_blank">{{ url }}</a></td>
         <td>{{ mark }}</td>
         <td>{{ cats }}</td>
         <td>{{ desc }}</td>
